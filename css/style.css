@@ -1,0 +1,71 @@
+body{
+    padding-top: 50px;
+    background-color: #26726e;
+}
+.list-group-item{
+    background-color: #5f9ea0;
+    color: #000;
+    font-size: 16px;
+}
+.list-group-item p{
+    margin-bottom: 0;
+    padding: 5px 10px;
+}
+span.input-group-addon{
+    background-color: #5f9ea0;
+    color: #fff;
+    border: none;
+}
+.row{
+    margin-bottom: 15px;
+}
+.completeTask{
+    text-decoration: line-through;
+}
+.editable{
+    background-color: #fff;
+    padding: 5px 10px;
+    font-size: 15px;
+    color: #000;
+}
+.cross-btn{
+    cursor: pointer;
+}
+.cross-btn:hover{
+    color: #fff;
+    font-size: 18px;
+}
+.mh{
+    color: #fff;
+    text-align: center;
+    margin-bottom: 25px;
+}
+.ps{
+    font-size: 16px;
+    color: #fff;
+}
+
+
+
+/*ngAnimate*/
+#todo-list li.ng-enter{
+    transition: 0.3s linear all;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+#todo-list li.ng-enter.ng-enter-active{
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+#todo-list li.ng-leave{
+    transition: 0.3s linear all;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#todo-list li.ng-leave.ng-leave-active{
+    opacity: 0;
+    transform: translateX(-100%);
+}

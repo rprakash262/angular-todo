@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-App="myModule">
+
+<head>
+    <title>angular todo</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body ng-controller="myCtrl" ng-init="getTodos()">
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <h2 class="mh">My todo's list:</h2>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Add new todo.." ng-model="newTodo" ng-keydown="addTodo($event)">
+                    <span class="input-group-addon">Press Enter</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <p class="ps" ng-if="todos.length == 0 || todos == undefined">No todo found</p>
+                <p class="ps" ng-if="todos.length != 0">Double-click on a task to edit</p>
+                <ul class="list-group" id="todo-list">
+                    <li class="list-group-item clearfix" ng-repeat="todo in todos">
+                        <span class="pull-left"><input type="checkbox" ng-model="todo.status" ng-change="setComplete()"></span>
+                        <p class="pull-left" ng-class="{'completeTask': todo.status == true}" contenteditable="false" ng-dblclick="enableEditing($event)" ng-keydown="editTodo($event, $index)">{{todo.text | capitalize}}</p>
+                        <span class="pull-right cross-btn" ng-click="removeTodo($index)">X</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- <div class="row" style="color: white;">
+            {{todos}}
+        </div> -->
+    </div>
+
+    
+    <script type="text/javascript" src="js/jQuery.js"></script>
+    <script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="js/angular-animate.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/controller.js"></script>
+</body>
+
+</html>
